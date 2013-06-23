@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the CTN Show Search feature.
+ */
+
+include_once 'ctn_show_search.features.inc';
