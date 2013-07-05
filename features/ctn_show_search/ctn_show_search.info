@@ -2,6 +2,7 @@ name = CTN Show Search
 description = Provides searching of shows.
 core = 7.x
 package = CTN
+php = 5.2.4
 version = 7.x-1.0
 project = ctn_show_search
 dependencies[] = ctools

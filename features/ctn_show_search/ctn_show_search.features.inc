@@ -133,45 +133,7 @@ function ctn_show_search_default_search_api_server() {
     "options" : {
       "database" : "default:default",
       "min_chars" : "1",
-      "indexes" : {
-        "shows_title" : {
-          "title" : {
-            "table" : "search_api_db_shows_title_title",
-            "type" : "text",
-            "boost" : "1.0"
-          },
-          "cablecast_show_comments" : {
-            "table" : "search_api_db_shows_title_cablecast_show_comments",
-            "type" : "text",
-            "boost" : "1.0"
-          },
-          "cablecast_category" : {
-            "table" : "search_api_db_shows_title_cablecast_category",
-            "type" : "integer",
-            "boost" : "1.0"
-          },
-          "search_api_language" : {
-            "table" : "search_api_db_shows_title_search_api_language",
-            "type" : "string",
-            "boost" : "1.0"
-          },
-          "type" : {
-            "table" : "search_api_db_shows_title_type",
-            "type" : "string",
-            "boost" : "1.0"
-          },
-          "status" : {
-            "table" : "search_api_db_shows_title_status",
-            "type" : "integer",
-            "boost" : "1.0"
-          },
-          "cablecast_project_reference" : {
-            "table" : "search_api_db_shows_title_cablecast_project_reference",
-            "type" : "integer",
-            "boost" : "1.0"
-          }
-        },
-        "ctn_show_search" : {
+      "indexes" : { "ctn_show_search" : {
           "type" : {
             "table" : "search_api_db_ctn_show_search_type",
             "type" : "string",
