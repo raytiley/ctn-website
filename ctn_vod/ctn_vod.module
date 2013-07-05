@@ -1,0 +1,32 @@
+<?php
+
+function ctn_vod_cron() {
+
+  //Get the files that are on ctns servers.
+	$server = 'http://video.ctn5.org';
+  $response = drupal_http_request($server);
+  $vods = drupal_json_decode($response->data);
+
+
+  foreach ($vods as $vod) {
+    $parts = explode('.', $vod);
+    $show_id = intval($parts[0]);
+
+    $sql = 'SELECT entity_id FROM {field_data_cablecast_show_id} cc WHERE cc.cablecast_show_id_value = :show_id';
+
+    $nid = db_query($sql, array(':show_id' => $show_id))->fetchField();
+    if($nid) {
+      $file = remote_stream_wrapper_file_load_by_uri($server . '/mp4/' . $vod);
+      if(!$file) {
+        $file = remote_stream_wrapper_file_create_by_uri($server . '/mp4/' . $vod);
+        file_save($file);
+      }
+      $show = node_load($nid);
+      if($show->ctn_vod_file['und'][0]['fid'] != $file->fid) {
+        $show->ctn_vod_file['und'][0]['fid'] = $file->fid;
+        $show->ctn_vod_file['und'][0]['display'] = 1;
+        node_save($show);
+      }
+    }
+  }
+}
