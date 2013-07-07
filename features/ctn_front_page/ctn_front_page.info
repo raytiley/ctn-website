@@ -23,3 +23,4 @@ features[image][] = front_page_medium
 features[page_manager_pages][] = home_page
 features[views_view][] = ctn_front_page_banner
 features[views_view][] = new_shows
+features[views_view][] = program_view_template
