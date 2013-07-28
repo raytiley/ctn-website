@@ -1,0 +1,4 @@
+name = CTN Front Page Block
+description = Creates a block that selects all the views tagged with ctn-front-page and renders them in order of recenly updated content
+core = 7.x
+version = 7.x-1.0
