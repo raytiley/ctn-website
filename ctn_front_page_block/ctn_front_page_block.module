@@ -25,13 +25,12 @@ function ctn_front_page_block_block_view($delta) {
 
 function ctn_front_page_block_render() {
 	$output = '';
-	$sql = 'SELECT name FROM {views_view} vv WHERE vv.tag LIKE :view_tag';
-	$viewNames = db_query($sql, array(":view_tag" => '%' . db_like('ctn-front-page') . '%'))->fetchAll();
-
-	foreach($viewNames as $name) {
-		$view = views_get_view($name->name);
-		$view->execute();
-		$output = $output . $view->preview();
+	$views = views_get_enabled_views();
+	foreach($views as $view) {
+		if(preg_match('/ctn-front-page/', $view->tag)) {
+			$view->execute();
+			$output = $output . $view->preview();
+		}
 	}
 
 	return array('subject' => NULL, 'content' => $output);
