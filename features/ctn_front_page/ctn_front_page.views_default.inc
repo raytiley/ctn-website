@@ -158,10 +158,10 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '3';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '12';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'list';
-  $handler->display->display_options['style_options']['row_class'] = 'span4';
+  $handler->display->display_options['style_options']['row_class'] = 'span3';
   $handler->display->display_options['style_options']['default_row_class'] = FALSE;
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['style_options']['class'] = 'thumbnails';
@@ -173,12 +173,27 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['content'] = '<h3>Adventure</h3>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Comments */
+  $handler->display->display_options['fields']['cablecast_show_comments']['id'] = 'cablecast_show_comments';
+  $handler->display->display_options['fields']['cablecast_show_comments']['table'] = 'field_data_cablecast_show_comments';
+  $handler->display->display_options['fields']['cablecast_show_comments']['field'] = 'cablecast_show_comments';
+  $handler->display->display_options['fields']['cablecast_show_comments']['label'] = '';
+  $handler->display->display_options['fields']['cablecast_show_comments']['alter']['max_length'] = '150';
+  $handler->display->display_options['fields']['cablecast_show_comments']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['cablecast_show_comments']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['cablecast_show_comments']['element_default_classes'] = FALSE;
   /* Field: Content: Thumbnail */
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['id'] = 'cablecast_show_thumbnail';
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['table'] = 'field_data_cablecast_show_thumbnail';
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['field'] = 'cablecast_show_thumbnail';
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['label'] = '';
-  $handler->display->display_options['fields']['cablecast_show_thumbnail']['exclude'] = TRUE;
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['settings'] = array(
@@ -190,23 +205,7 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['fields']['path']['table'] = 'node';
   $handler->display->display_options['fields']['path']['field'] = 'path';
   $handler->display->display_options['fields']['path']['label'] = '';
-  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: Content: Show ID */
-  $handler->display->display_options['fields']['cablecast_show_id']['id'] = 'cablecast_show_id';
-  $handler->display->display_options['fields']['cablecast_show_id']['table'] = 'field_data_cablecast_show_id';
-  $handler->display->display_options['fields']['cablecast_show_id']['field'] = 'cablecast_show_id';
-  $handler->display->display_options['fields']['cablecast_show_id']['label'] = '';
-  $handler->display->display_options['fields']['cablecast_show_id']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['cablecast_show_id']['alter']['text'] = '<a class="thumbnail" href="[path]">
-[cablecast_show_thumbnail]
-<span class="play play-large"></span>
-</a>';
-  $handler->display->display_options['fields']['cablecast_show_id']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['cablecast_show_id']['settings'] = array(
-    'thousand_separator' => ' ',
-    'prefix_suffix' => 0,
-  );
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -298,13 +297,11 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '3';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '12';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'list';
-  $handler->display->display_options['style_options']['row_class'] = 'span4';
   $handler->display->display_options['style_options']['default_row_class'] = FALSE;
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
-  $handler->display->display_options['style_options']['class'] = 'thumbnails';
   $handler->display->display_options['style_options']['wrapper_class'] = '';
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
@@ -319,7 +316,6 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['table'] = 'field_data_cablecast_show_thumbnail';
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['field'] = 'cablecast_show_thumbnail';
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['label'] = '';
-  $handler->display->display_options['fields']['cablecast_show_thumbnail']['exclude'] = TRUE;
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['settings'] = array(
@@ -333,21 +329,21 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: Content: Show ID */
-  $handler->display->display_options['fields']['cablecast_show_id']['id'] = 'cablecast_show_id';
-  $handler->display->display_options['fields']['cablecast_show_id']['table'] = 'field_data_cablecast_show_id';
-  $handler->display->display_options['fields']['cablecast_show_id']['field'] = 'cablecast_show_id';
-  $handler->display->display_options['fields']['cablecast_show_id']['label'] = '';
-  $handler->display->display_options['fields']['cablecast_show_id']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['cablecast_show_id']['alter']['text'] = '<a class="thumbnail" href="[path]">
-[cablecast_show_thumbnail]
-<span class="play play-large"></span>
-</a>';
-  $handler->display->display_options['fields']['cablecast_show_id']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['cablecast_show_id']['settings'] = array(
-    'thousand_separator' => ' ',
-    'prefix_suffix' => 0,
-  );
+  /* Field: Content: Comments */
+  $handler->display->display_options['fields']['cablecast_show_comments']['id'] = 'cablecast_show_comments';
+  $handler->display->display_options['fields']['cablecast_show_comments']['table'] = 'field_data_cablecast_show_comments';
+  $handler->display->display_options['fields']['cablecast_show_comments']['field'] = 'cablecast_show_comments';
+  $handler->display->display_options['fields']['cablecast_show_comments']['label'] = '';
+  $handler->display->display_options['fields']['cablecast_show_comments']['alter']['max_length'] = '150';
+  $handler->display->display_options['fields']['cablecast_show_comments']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['cablecast_show_comments']['element_label_colon'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -453,7 +449,7 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '3';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '12';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['style_options']['row_class'] = 'span4';
@@ -474,7 +470,6 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['table'] = 'field_data_cablecast_show_thumbnail';
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['field'] = 'cablecast_show_thumbnail';
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['label'] = '';
-  $handler->display->display_options['fields']['cablecast_show_thumbnail']['exclude'] = TRUE;
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['settings'] = array(
@@ -486,23 +481,22 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['fields']['path']['table'] = 'node';
   $handler->display->display_options['fields']['path']['field'] = 'path';
   $handler->display->display_options['fields']['path']['label'] = '';
-  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: Content: Show ID */
-  $handler->display->display_options['fields']['cablecast_show_id']['id'] = 'cablecast_show_id';
-  $handler->display->display_options['fields']['cablecast_show_id']['table'] = 'field_data_cablecast_show_id';
-  $handler->display->display_options['fields']['cablecast_show_id']['field'] = 'cablecast_show_id';
-  $handler->display->display_options['fields']['cablecast_show_id']['label'] = '';
-  $handler->display->display_options['fields']['cablecast_show_id']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['cablecast_show_id']['alter']['text'] = '<a class="thumbnail" href="[path]">
-[cablecast_show_thumbnail]
-<span class="play play-large"></span>
-</a>';
-  $handler->display->display_options['fields']['cablecast_show_id']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['cablecast_show_id']['settings'] = array(
-    'thousand_separator' => ' ',
-    'prefix_suffix' => 0,
-  );
+  /* Field: Content: Comments */
+  $handler->display->display_options['fields']['cablecast_show_comments']['id'] = 'cablecast_show_comments';
+  $handler->display->display_options['fields']['cablecast_show_comments']['table'] = 'field_data_cablecast_show_comments';
+  $handler->display->display_options['fields']['cablecast_show_comments']['field'] = 'cablecast_show_comments';
+  $handler->display->display_options['fields']['cablecast_show_comments']['label'] = '';
+  $handler->display->display_options['fields']['cablecast_show_comments']['alter']['max_length'] = '150';
+  $handler->display->display_options['fields']['cablecast_show_comments']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['cablecast_show_comments']['element_label_colon'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -578,7 +572,7 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '3';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '12';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['style_options']['row_class'] = 'span4';
@@ -599,7 +593,6 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['table'] = 'field_data_cablecast_show_thumbnail';
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['field'] = 'cablecast_show_thumbnail';
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['label'] = '';
-  $handler->display->display_options['fields']['cablecast_show_thumbnail']['exclude'] = TRUE;
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['settings'] = array(
@@ -611,23 +604,22 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['fields']['path']['table'] = 'node';
   $handler->display->display_options['fields']['path']['field'] = 'path';
   $handler->display->display_options['fields']['path']['label'] = '';
-  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: Content: Show ID */
-  $handler->display->display_options['fields']['cablecast_show_id']['id'] = 'cablecast_show_id';
-  $handler->display->display_options['fields']['cablecast_show_id']['table'] = 'field_data_cablecast_show_id';
-  $handler->display->display_options['fields']['cablecast_show_id']['field'] = 'cablecast_show_id';
-  $handler->display->display_options['fields']['cablecast_show_id']['label'] = '';
-  $handler->display->display_options['fields']['cablecast_show_id']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['cablecast_show_id']['alter']['text'] = '<a class="thumbnail" href="[path]">
-[cablecast_show_thumbnail]
-<span class="play play-large"></span>
-</a>';
-  $handler->display->display_options['fields']['cablecast_show_id']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['cablecast_show_id']['settings'] = array(
-    'thousand_separator' => ' ',
-    'prefix_suffix' => 0,
-  );
+  /* Field: Content: Comments */
+  $handler->display->display_options['fields']['cablecast_show_comments']['id'] = 'cablecast_show_comments';
+  $handler->display->display_options['fields']['cablecast_show_comments']['table'] = 'field_data_cablecast_show_comments';
+  $handler->display->display_options['fields']['cablecast_show_comments']['field'] = 'cablecast_show_comments';
+  $handler->display->display_options['fields']['cablecast_show_comments']['label'] = '';
+  $handler->display->display_options['fields']['cablecast_show_comments']['alter']['max_length'] = '150';
+  $handler->display->display_options['fields']['cablecast_show_comments']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['cablecast_show_comments']['element_label_colon'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -718,7 +710,7 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '3';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '12';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['style_options']['row_class'] = 'span4';
@@ -739,7 +731,6 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['table'] = 'field_data_cablecast_show_thumbnail';
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['field'] = 'cablecast_show_thumbnail';
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['label'] = '';
-  $handler->display->display_options['fields']['cablecast_show_thumbnail']['exclude'] = TRUE;
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['settings'] = array(
@@ -751,23 +742,22 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['fields']['path']['table'] = 'node';
   $handler->display->display_options['fields']['path']['field'] = 'path';
   $handler->display->display_options['fields']['path']['label'] = '';
-  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: Content: Show ID */
-  $handler->display->display_options['fields']['cablecast_show_id']['id'] = 'cablecast_show_id';
-  $handler->display->display_options['fields']['cablecast_show_id']['table'] = 'field_data_cablecast_show_id';
-  $handler->display->display_options['fields']['cablecast_show_id']['field'] = 'cablecast_show_id';
-  $handler->display->display_options['fields']['cablecast_show_id']['label'] = '';
-  $handler->display->display_options['fields']['cablecast_show_id']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['cablecast_show_id']['alter']['text'] = '<a class="thumbnail" href="[path]">
-[cablecast_show_thumbnail]
-<span class="play play-large"></span>
-</a>';
-  $handler->display->display_options['fields']['cablecast_show_id']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['cablecast_show_id']['settings'] = array(
-    'thousand_separator' => ' ',
-    'prefix_suffix' => 0,
-  );
+  /* Field: Content: Comments */
+  $handler->display->display_options['fields']['cablecast_show_comments']['id'] = 'cablecast_show_comments';
+  $handler->display->display_options['fields']['cablecast_show_comments']['table'] = 'field_data_cablecast_show_comments';
+  $handler->display->display_options['fields']['cablecast_show_comments']['field'] = 'cablecast_show_comments';
+  $handler->display->display_options['fields']['cablecast_show_comments']['label'] = '';
+  $handler->display->display_options['fields']['cablecast_show_comments']['alter']['max_length'] = '150';
+  $handler->display->display_options['fields']['cablecast_show_comments']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['cablecast_show_comments']['element_label_colon'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
