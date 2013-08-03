@@ -2,6 +2,16 @@
 
 function ctn_vod_cron() {
 
+  //This is kinda expensive only do it every few hours.
+  $last_run = variable_get('ctn_vod_cron_last_run', 0);
+  $difference = time() - $last_run;
+  $six_hours = 60 * 60 * 6;
+
+  if($difference < $six_hours) {
+    return;
+  }
+  variable_set('ctn_vod_cron_last_run', time());
+  
   //Get the files that are on ctns servers.
 	$server = 'http://video.ctn5.org';
   $response = drupal_http_request($server);

@@ -1148,7 +1148,7 @@ function ctn_show_page_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'media_generic',
-        'weight' => 10,
+        'weight' => '10',
       ),
     ),
   );
