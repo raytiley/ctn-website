@@ -196,6 +196,7 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['label'] = '';
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['cablecast_show_thumbnail']['type'] = 'image_url';
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['settings'] = array(
     'image_style' => 'front-page-large',
     'image_link' => '',
@@ -318,6 +319,7 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['label'] = '';
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['cablecast_show_thumbnail']['type'] = 'image_url';
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['settings'] = array(
     'image_style' => 'front-page-large',
     'image_link' => '',
@@ -471,6 +473,7 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['label'] = '';
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['cablecast_show_thumbnail']['type'] = 'image_url';
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['settings'] = array(
     'image_style' => 'front-page-large',
     'image_link' => '',
@@ -594,6 +597,7 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['label'] = '';
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['cablecast_show_thumbnail']['type'] = 'image_url';
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['settings'] = array(
     'image_style' => 'front-page-large',
     'image_link' => '',
@@ -732,6 +736,7 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['label'] = '';
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['cablecast_show_thumbnail']['type'] = 'image_url';
   $handler->display->display_options['fields']['cablecast_show_thumbnail']['settings'] = array(
     'image_style' => 'front-page-large',
     'image_link' => '',
