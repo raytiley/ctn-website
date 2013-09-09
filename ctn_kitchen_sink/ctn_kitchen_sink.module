@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function ctn_kitchen_sink_field_formatter_info() {
+  return array(
+    'ctn_video_tag_formatter' => array( //Machine name of the formatter
+      'label' => t('Video Tag'),
+      'field types' => array('file'), //This will only be available to text fields
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function ctn_kitchen_sink_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  drupal_add_library('mediaelement', 'mediaelement');
+  $element = array(); // Initialize the var
+  $element[0]['#markup'] = '<video controls width="100%" height="100%" src="' . $items[0]['uri'] . '">Your Browser does not support html5 video</video>' .
+                           '<script>jQuery(\'video\').mediaelementplayer();</script>';
+  return $element;
+}
+
+function ctn_kitchen_sink_library() {
+  $path = libraries_get_path('mediaelement');
+  $libraries = array();
+
+  $libraries['mediaelement'] = array(
+    'title' => 'Media Element',
+    'website' => 'http://mediaelementjs.com/',
+    'version' => '2.1.6',
+    'js' => array(
+      // The mediaelement script detects the path to itself to call other files
+      // in the same location. With preprocessing this is problematic as the
+      // script is no longer in the same directory as its other assets. There
+      // is an option that can be passed into the script with its location.
+      // @todo Update all calls to mediaelement to pass in the assets location.
+      $path . '/build/mediaelement-and-player.min.js' => array('group' => JS_LIBRARY, 'preprocess' => FALSE),
+    ),
+    'css' => array(
+      $path . '/build/mediaelementplayer.min.css' => array('group' => CSS_SYSTEM),
+    ),
+  );
+  return $libraries;
+}

@@ -1,0 +1,5 @@
+name = CTN Kitchen Sink
+description = "Stuff Dawg"
+package = CTN
+core = 7.x
+files[] = ctn_kitchen_sink.module
