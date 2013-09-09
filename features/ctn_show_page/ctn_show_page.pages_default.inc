@@ -45,7 +45,7 @@ function ctn_show_page_default_page_manager_handlers() {
     ),
   );
   $display = new panels_display();
-  $display->layout = 'twocol_bricks';
+  $display->layout = 'showpage';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -57,6 +57,11 @@ function ctn_show_page_default_page_manager_handlers() {
       'left_below' => NULL,
       'right_below' => NULL,
       'bottom' => NULL,
+      'vod' => NULL,
+      'description' => NULL,
+      'comments' => NULL,
+      'airings' => NULL,
+      'links' => NULL,
     ),
   );
   $display->cache = array();
@@ -65,7 +70,7 @@ function ctn_show_page_default_page_manager_handlers() {
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-1';
-    $pane->panel = 'left_above';
+    $pane->panel = 'airings';
     $pane->type = 'views';
     $pane->subtype = 'ctn_show_upcoming_runs';
     $pane->shown = TRUE;
@@ -98,10 +103,10 @@ function ctn_show_page_default_page_manager_handlers() {
     $pane->position = 0;
     $pane->locks = array();
     $display->content['new-1'] = $pane;
-    $display->panels['left_above'][0] = 'new-1';
+    $display->panels['airings'][0] = 'new-1';
     $pane = new stdClass();
     $pane->pid = 'new-2';
-    $pane->panel = 'right_above';
+    $pane->panel = 'comments';
     $pane->type = 'block';
     $pane->subtype = 'facebook_comments_box-facebook_comments_box';
     $pane->shown = TRUE;
@@ -119,25 +124,53 @@ function ctn_show_page_default_page_manager_handlers() {
     $pane->position = 0;
     $pane->locks = array();
     $display->content['new-2'] = $pane;
-    $display->panels['right_above'][0] = 'new-2';
+    $display->panels['comments'][0] = 'new-2';
     $pane = new stdClass();
     $pane->pid = 'new-3';
-    $pane->panel = 'top';
+    $pane->panel = 'description';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:cablecast_show_comments';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'hidden',
+      'formatter' => 'text_default',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $display->content['new-3'] = $pane;
+    $display->panels['description'][0] = 'new-3';
+    $pane = new stdClass();
+    $pane->pid = 'new-4';
+    $pane->panel = 'vod';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:ctn_vod_file';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
       'label' => 'hidden',
-      'formatter' => 'mediaelement_video',
+      'formatter' => 'ctn_video_tag_formatter',
       'delta_limit' => 0,
       'delta_offset' => '0',
       'delta_reversed' => FALSE,
       'formatter_settings' => array(
         'controls' => 1,
-        'width' => '640',
-        'height' => '385',
-        'download_link' => 1,
+        'width' => '100%',
+        'height' => '100%',
+        'download_link' => 0,
         'download_text' => 'Download',
       ),
       'context' => 'argument_entity_id:node_1',
@@ -152,11 +185,11 @@ function ctn_show_page_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-3'] = $pane;
-    $display->panels['top'][0] = 'new-3';
+    $display->content['new-4'] = $pane;
+    $display->panels['vod'][0] = 'new-4';
     $pane = new stdClass();
-    $pane->pid = 'new-4';
-    $pane->panel = 'top';
+    $pane->pid = 'new-5';
+    $pane->panel = 'vod';
     $pane->type = 'block';
     $pane->subtype = 'service_links-service_links';
     $pane->shown = TRUE;
@@ -176,10 +209,10 @@ function ctn_show_page_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $display->content['new-4'] = $pane;
-    $display->panels['top'][1] = 'new-4';
+    $display->content['new-5'] = $pane;
+    $display->panels['vod'][1] = 'new-5';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-3';
+  $display->title_pane = 'new-4';
   $handler->conf['display'] = $display;
   $export['node_view_panel_context'] = $handler;
 
