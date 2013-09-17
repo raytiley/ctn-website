@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the CTN Path Settings feature.
+ */
+
+include_once 'ctn_path_settings.features.inc';
