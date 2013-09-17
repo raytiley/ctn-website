@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the TV Schedule feature.
+ */
+
+include_once 'ctn_tv_schedule.features.inc';
