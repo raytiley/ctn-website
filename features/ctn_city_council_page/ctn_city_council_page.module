@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the City Council Page feature.
+ */
+
+include_once 'ctn_city_council_page.features.inc';
