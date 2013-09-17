@@ -1,0 +1,61 @@
+<?php
+
+function ctn_show_tags_cablecast_show_presave($node, $show) {
+  if($show->CustomFields->CustomField) {
+    foreach($show->CustomFields->CustomField as $field)
+      if($field->Name == 'Tags (Comma Separated)') {
+        $tags = _ctn_show_tags_build_tags($field->Value);
+        $node->field_tags['und'] = $tags;
+      }
+  }
+}
+
+function _ctn_show_tags_get_term($tag) {
+	//This is going to be performance suck
+  $vid = variable_get('ctn_shows_tags_vid', false);
+  if($vid == false) {
+    $vid = _ctn_show_tags_get_tags_vid();
+    variable_set('ctn_shows_tags_vid', $vid);
+  }
+  
+  if($vid == false) {
+    throw new Exception("Could not find Tags Taxonomy", 1);
+    
+  }
+
+  $terms = taxonomy_get_term_by_name($tag);
+  foreach ($terms as $term) {
+    if($term->vid == $vid) {
+      return $term->tid;
+    }
+  }
+
+  //Term doesn't exist create it
+  $new_term = array(
+    'vid' => $vid,
+    'name' => $tag,
+  );
+  $new_term = (object) $new_term;
+  taxonomy_term_save($new_term);
+
+  return $new_term->tid;
+}
+
+function _ctn_show_tags_get_tags_vid() {
+  $vocabs = taxonomy_get_vocabularies();
+  foreach ($vocabs as $vocab) {
+    if ($vocab->name == 'Tags') {
+      return $vocab->vid;
+    }
+  }
+}
+
+function _ctn_show_tags_build_tags($tags_string) {
+  $tags = drupal_explode_tags($tags_string);
+  $vids = array();
+  foreach($tags as $tag) {
+    $tid = _ctn_show_tags_get_term($tag);
+    $vids[] = array('tid' => $tid);
+  }
+  return $vids;
+}
