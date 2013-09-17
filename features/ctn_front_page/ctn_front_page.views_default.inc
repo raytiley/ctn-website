@@ -140,6 +140,80 @@ function ctn_front_page_views_default_views() {
   $export['ctn_front_page_banner'] = $view;
 
   $view = new view();
+  $view->name = 'ctn_show_queue';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Show Queue';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Show Queue';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['perm'] = 'administer nodes';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '50';
+  $handler->display->display_options['style_plugin'] = 'table';
+  /* Field: Content: Show ID */
+  $handler->display->display_options['fields']['cablecast_show_id']['id'] = 'cablecast_show_id';
+  $handler->display->display_options['fields']['cablecast_show_id']['table'] = 'field_data_cablecast_show_id';
+  $handler->display->display_options['fields']['cablecast_show_id']['field'] = 'cablecast_show_id';
+  $handler->display->display_options['fields']['cablecast_show_id']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Show Title */
+  $handler->display->display_options['fields']['cablecast_show_title']['id'] = 'cablecast_show_title';
+  $handler->display->display_options['fields']['cablecast_show_title']['table'] = 'field_data_cablecast_show_title';
+  $handler->display->display_options['fields']['cablecast_show_title']['field'] = 'cablecast_show_title';
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = 'Edit';
+  /* Sort criterion: Content: Show ID (cablecast_show_id) */
+  $handler->display->display_options['sorts']['cablecast_show_id_value']['id'] = 'cablecast_show_id_value';
+  $handler->display->display_options['sorts']['cablecast_show_id_value']['table'] = 'field_data_cablecast_show_id';
+  $handler->display->display_options['sorts']['cablecast_show_id_value']['field'] = 'cablecast_show_id_value';
+  $handler->display->display_options['sorts']['cablecast_show_id_value']['order'] = 'DESC';
+  /* Filter criterion: Content: ctn_show_banner_image (field_ctn_show_banner_image:fid) */
+  $handler->display->display_options['filters']['field_ctn_show_banner_image_fid']['id'] = 'field_ctn_show_banner_image_fid';
+  $handler->display->display_options['filters']['field_ctn_show_banner_image_fid']['table'] = 'field_data_field_ctn_show_banner_image';
+  $handler->display->display_options['filters']['field_ctn_show_banner_image_fid']['field'] = 'field_ctn_show_banner_image_fid';
+  $handler->display->display_options['filters']['field_ctn_show_banner_image_fid']['operator'] = 'empty';
+  $handler->display->display_options['filters']['field_ctn_show_banner_image_fid']['group'] = 1;
+  /* Filter criterion: Content: Promoted to front page */
+  $handler->display->display_options['filters']['promote']['id'] = 'promote';
+  $handler->display->display_options['filters']['promote']['table'] = 'node';
+  $handler->display->display_options['filters']['promote']['field'] = 'promote';
+  $handler->display->display_options['filters']['promote']['value'] = '0';
+  $handler->display->display_options['filters']['promote']['group'] = 1;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'cablecast_show' => 'cablecast_show',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['path'] = 'admin/show-queue';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Show Queue';
+  $handler->display->display_options['menu']['name'] = 'management';
+  $export['ctn_show_queue'] = $view;
+
+  $view = new view();
   $view->name = 'front_page_adventure';
   $view->description = '';
   $view->tag = 'ctn-front-page, four-by-one';

@@ -1,11 +1,13 @@
 name = CTN Main Menu
 core = 7.x
 package = CTN
+php = 5.2.4
 version = 7.x-1.0
 project = ctn_main_menu
 dependencies[] = features
 dependencies[] = menu
 features[features_api][] = api:1
 features[menu_custom][] = main-menu
+features[menu_custom][] = management
 features[menu_links][] = main-menu:portland-city-council
-features[menu_links][] = main-menu:schedule
+features[menu_links][] = management:admin/show-queue
