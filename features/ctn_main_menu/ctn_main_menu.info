@@ -1,0 +1,11 @@
+name = CTN Main Menu
+core = 7.x
+package = CTN
+version = 7.x-1.0
+project = ctn_main_menu
+dependencies[] = features
+dependencies[] = menu
+features[features_api][] = api:1
+features[menu_custom][] = main-menu
+features[menu_links][] = main-menu:portland-city-council
+features[menu_links][] = main-menu:schedule

@@ -1,6 +1,7 @@
 name = City Council Page
 core = 7.x
 package = CTN
+php = 5.2.4
 version = 7.x-1.0
 project = ctn_city_council_page
 dependencies[] = ctools
@@ -9,6 +10,4 @@ dependencies[] = menu
 dependencies[] = views
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:1
-features[menu_custom][] = main-menu
-features[menu_links][] = main-menu:portland-city-council
 features[views_view][] = city_council
