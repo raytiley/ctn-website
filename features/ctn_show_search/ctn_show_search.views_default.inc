@@ -32,8 +32,8 @@ function ctn_show_search_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '25';
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['row_plugin'] = 'entity';
-  $handler->display->display_options['row_options']['view_mode'] = 'search_result';
+  $handler->display->display_options['style_options']['row_class'] = 'search-result';
+  $handler->display->display_options['row_plugin'] = 'fields';
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
@@ -41,10 +41,48 @@ function ctn_show_search_views_default_views() {
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = 'We couldn\'t find anything with your search terms. Please try again.';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
-  /* Field: Indexed Node: Node ID */
-  $handler->display->display_options['fields']['nid']['id'] = 'nid';
-  $handler->display->display_options['fields']['nid']['table'] = 'search_api_index_ctn_show_search';
-  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  /* Field: Indexed Node: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'search_api_index_ctn_show_search';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['max_length'] = '40';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
+  /* Field: Indexed Node: Thumbnail */
+  $handler->display->display_options['fields']['cablecast_show_thumbnail']['id'] = 'cablecast_show_thumbnail';
+  $handler->display->display_options['fields']['cablecast_show_thumbnail']['table'] = 'search_api_index_ctn_show_search';
+  $handler->display->display_options['fields']['cablecast_show_thumbnail']['field'] = 'cablecast_show_thumbnail';
+  $handler->display->display_options['fields']['cablecast_show_thumbnail']['label'] = '';
+  $handler->display->display_options['fields']['cablecast_show_thumbnail']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['cablecast_show_thumbnail']['element_class'] = 'pull-left';
+  $handler->display->display_options['fields']['cablecast_show_thumbnail']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['cablecast_show_thumbnail']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['cablecast_show_thumbnail']['settings'] = array(
+    'image_style' => 'thumbnail',
+    'image_link' => 'content',
+  );
+  /* Field: Indexed Node: Comments */
+  $handler->display->display_options['fields']['cablecast_show_comments']['id'] = 'cablecast_show_comments';
+  $handler->display->display_options['fields']['cablecast_show_comments']['table'] = 'search_api_index_ctn_show_search';
+  $handler->display->display_options['fields']['cablecast_show_comments']['field'] = 'cablecast_show_comments';
+  $handler->display->display_options['fields']['cablecast_show_comments']['label'] = '';
+  $handler->display->display_options['fields']['cablecast_show_comments']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['cablecast_show_comments']['alter']['text'] = '<div class="media">
+<div class="search-thumbnail">
+[cablecast_show_thumbnail] 
+</div>
+<div class="media-body">
+<h4 class="media-heading">[title]</h4>
+<div class="search-description">
+[cablecast_show_comments]
+</div>
+</div>
+</div>';
+  $handler->display->display_options['fields']['cablecast_show_comments']['alter']['max_length'] = '300';
+  $handler->display->display_options['fields']['cablecast_show_comments']['element_label_colon'] = FALSE;
   /* Sort criterion: Search: Relevance */
   $handler->display->display_options['sorts']['search_api_relevance']['id'] = 'search_api_relevance';
   $handler->display->display_options['sorts']['search_api_relevance']['table'] = 'search_api_index_ctn_show_search';

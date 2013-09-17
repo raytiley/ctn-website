@@ -26,12 +26,6 @@ function ctn_show_search_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views--exp-ctn_show_search-page' => array(
-          'module' => 'views',
-          'delta' => '-exp-ctn_show_search-page',
-          'region' => 'sidebar_first',
-          'weight' => '-10',
-        ),
         'facetapi-8cOeWQz8rb19QmmzsHUP7YIzZ6T9cyph' => array(
           'module' => 'facetapi',
           'delta' => '8cOeWQz8rb19QmmzsHUP7YIzZ6T9cyph',
