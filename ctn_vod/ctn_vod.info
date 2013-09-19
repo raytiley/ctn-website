@@ -2,3 +2,7 @@ name = CTN VOD
 description = Syncs CTN VOD Content
 core = 7.x
 version = 7.x-1.0
+dependencies[] = cablecast
+dependencies[] = media
+dependencies[] = file_entity
+dependencies[] = remote_stream_wrapper
