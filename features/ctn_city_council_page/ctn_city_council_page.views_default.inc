@@ -80,6 +80,12 @@ function ctn_city_council_page_views_default_views() {
   $handler->display->display_options['sorts']['cablecast_show_event_date_value']['table'] = 'field_data_cablecast_show_event_date';
   $handler->display->display_options['sorts']['cablecast_show_event_date_value']['field'] = 'cablecast_show_event_date_value';
   $handler->display->display_options['sorts']['cablecast_show_event_date_value']['order'] = 'DESC';
+  /* Contextual filter: Content: Title */
+  $handler->display->display_options['arguments']['title']['id'] = 'title';
+  $handler->display->display_options['arguments']['title']['table'] = 'node';
+  $handler->display->display_options['arguments']['title']['field'] = 'title';
+  $handler->display->display_options['arguments']['title']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['title']['summary']['format'] = 'default_summary';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -87,13 +93,11 @@ function ctn_city_council_page_views_default_views() {
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Project (cablecast_project_reference) */
-  $handler->display->display_options['filters']['cablecast_project_reference_target_id']['id'] = 'cablecast_project_reference_target_id';
-  $handler->display->display_options['filters']['cablecast_project_reference_target_id']['table'] = 'field_data_cablecast_project_reference';
-  $handler->display->display_options['filters']['cablecast_project_reference_target_id']['field'] = 'cablecast_project_reference_target_id';
-  $handler->display->display_options['filters']['cablecast_project_reference_target_id']['value'] = array(
-    23436 => '23436',
-  );
+  /* Filter criterion: Content: Project ID (cablecast_project_id) */
+  $handler->display->display_options['filters']['cablecast_project_id_value']['id'] = 'cablecast_project_id_value';
+  $handler->display->display_options['filters']['cablecast_project_id_value']['table'] = 'field_data_cablecast_project_id';
+  $handler->display->display_options['filters']['cablecast_project_id_value']['field'] = 'cablecast_project_id_value';
+  $handler->display->display_options['filters']['cablecast_project_id_value']['value']['value'] = '231';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
