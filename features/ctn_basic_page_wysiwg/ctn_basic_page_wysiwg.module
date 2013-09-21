@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Basic Page WYSIWG feature.
+ */
+
+include_once 'ctn_basic_page_wysiwg.features.inc';
