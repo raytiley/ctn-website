@@ -59,6 +59,7 @@ function ctn_kitchen_sink_wysiwyg_editor_settings_alter(&$settings, $context) {
  */
 function ctn_kitchen_sink_query_alter($query) {
   if ($query->hasTag('node_export_features')) {
-    $query->condition('type', 'page');
+    $condition = db_or()->condition('type', 'page')->condition('type', 'webform');
+    $query->condition($condition);
   }
 }
