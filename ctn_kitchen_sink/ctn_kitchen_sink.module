@@ -63,3 +63,15 @@ function ctn_kitchen_sink_query_alter($query) {
     $query->condition($condition);
   }
 }
+
+function ctn_kitchen_sink_node_export_node_import_alter(&$node, $original_node, $save) {
+  $path = 'node/' . $node->nid;
+  if (drupal_get_path_alias($path) != $path) {
+    $node->menu = NULL;
+    $node->path = NULL;
+  }
+}
+
+function ctn_kitchen_sink_file_formatter_info_alter(&$info) {
+  $info['media_youtube_video']['file types'][] = 'ctn_member_video';
+}

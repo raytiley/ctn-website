@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the CTN Member Pages feature.
+ */
+
+include_once 'ctn_member_pages.features.inc';
