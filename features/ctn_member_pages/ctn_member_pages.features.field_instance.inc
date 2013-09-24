@@ -10,6 +10,146 @@
 function ctn_member_pages_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'file-ctn_member_video-field_mem_vid_desc'
+  $field_instances['file-ctn_member_video-field_mem_vid_desc'] = array(
+    'bundle' => 'ctn_member_video',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'file',
+    'field_name' => 'field_mem_vid_desc',
+    'label' => 'Description',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+      'wysiwyg_override' => 1,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => -4,
+    ),
+  );
+
+  // Exported field_instance: 'file-ctn_member_video-field_mem_vid_link'
+  $field_instances['file-ctn_member_video-field_mem_vid_link'] = array(
+    'bundle' => 'ctn_member_video',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+      'preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'file',
+    'field_name' => 'field_mem_vid_link',
+    'label' => 'Link',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+      'wysiwyg_override' => 1,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => -3,
+    ),
+  );
+
+  // Exported field_instance: 'file-ctn_member_video-field_mem_vid_ref'
+  $field_instances['file-ctn_member_video-field_mem_vid_ref'] = array(
+    'bundle' => 'ctn_member_video',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 2,
+      ),
+      'preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'file',
+    'field_name' => 'field_mem_vid_ref',
+    'label' => 'Member',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+      'wysiwyg_override' => 1,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => -2,
+    ),
+  );
+
   // Exported field_instance: 'node-ctn_member-field_ctn_member_desc'
   $field_instances['node-ctn_member-field_ctn_member_desc'] = array(
     'bundle' => 'ctn_member',
@@ -162,7 +302,9 @@ function ctn_member_pages_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('A short description of the member orginization.');
   t('Description');
+  t('Link');
   t('Logo');
+  t('Member');
   t('This image will be used as the logo for the member. High resolution PNGs with transparency work best.');
   t('URL of the member\'s website.');
   t('Website');
