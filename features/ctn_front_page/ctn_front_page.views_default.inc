@@ -47,17 +47,13 @@ function ctn_front_page_views_default_views() {
     'image_style' => 'front_page_banner',
     'image_link' => '',
   );
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: CG Title */
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['id'] = 'cablecast_show_cg_title';
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['table'] = 'field_data_cablecast_show_cg_title';
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['field'] = 'cablecast_show_cg_title';
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['label'] = '';
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['element_label_colon'] = FALSE;
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
@@ -94,7 +90,7 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['fields']['cablecast_show_id']['alter']['text'] = '[field_ctn_show_banner_image]
 <div class="container">
 <div class="carousel-caption">
-<h1>[title]</h1>
+<h1>[cablecast_show_cg_title]</h1>
 <p class="lead">
 [cablecast_show_comments]
 </p>
@@ -153,8 +149,11 @@ function ctn_front_page_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Show Queue';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['access']['perm'] = 'administer nodes';
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    3 => '3',
+    4 => '4',
+  );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -183,6 +182,10 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['sorts']['cablecast_show_id_value']['table'] = 'field_data_cablecast_show_id';
   $handler->display->display_options['sorts']['cablecast_show_id_value']['field'] = 'cablecast_show_id_value';
   $handler->display->display_options['sorts']['cablecast_show_id_value']['order'] = 'DESC';
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'OR',
+    2 => 'AND',
+  );
   /* Filter criterion: Content: ctn_show_banner_image (field_ctn_show_banner_image:fid) */
   $handler->display->display_options['filters']['field_ctn_show_banner_image_fid']['id'] = 'field_ctn_show_banner_image_fid';
   $handler->display->display_options['filters']['field_ctn_show_banner_image_fid']['table'] = 'field_data_field_ctn_show_banner_image';
@@ -202,7 +205,7 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'cablecast_show' => 'cablecast_show',
   );
-  $handler->display->display_options['filters']['type']['group'] = 1;
+  $handler->display->display_options['filters']['type']['group'] = 2;
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -247,13 +250,6 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['content'] = '<h3>Adventure</h3>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: Content: Comments */
   $handler->display->display_options['fields']['cablecast_show_comments']['id'] = 'cablecast_show_comments';
   $handler->display->display_options['fields']['cablecast_show_comments']['table'] = 'field_data_cablecast_show_comments';
@@ -281,6 +277,12 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['fields']['path']['field'] = 'path';
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
+  /* Field: Content: CG Title */
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['id'] = 'cablecast_show_cg_title';
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['table'] = 'field_data_cablecast_show_cg_title';
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['field'] = 'cablecast_show_cg_title';
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['label'] = '';
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -412,13 +414,12 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['fields']['cablecast_show_comments']['alter']['max_length'] = '150';
   $handler->display->display_options['fields']['cablecast_show_comments']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['cablecast_show_comments']['element_label_colon'] = FALSE;
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: CG Title */
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['id'] = 'cablecast_show_cg_title';
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['table'] = 'field_data_cablecast_show_cg_title';
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['field'] = 'cablecast_show_cg_title';
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['label'] = '';
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -566,13 +567,12 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['fields']['cablecast_show_comments']['alter']['max_length'] = '150';
   $handler->display->display_options['fields']['cablecast_show_comments']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['cablecast_show_comments']['element_label_colon'] = FALSE;
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: CG Title */
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['id'] = 'cablecast_show_cg_title';
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['table'] = 'field_data_cablecast_show_cg_title';
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['field'] = 'cablecast_show_cg_title';
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['label'] = '';
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -690,13 +690,12 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['fields']['cablecast_show_comments']['alter']['max_length'] = '150';
   $handler->display->display_options['fields']['cablecast_show_comments']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['cablecast_show_comments']['element_label_colon'] = FALSE;
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: CG Title */
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['id'] = 'cablecast_show_cg_title';
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['table'] = 'field_data_cablecast_show_cg_title';
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['field'] = 'cablecast_show_cg_title';
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['label'] = '';
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -829,13 +828,12 @@ function ctn_front_page_views_default_views() {
   $handler->display->display_options['fields']['cablecast_show_comments']['alter']['max_length'] = '150';
   $handler->display->display_options['fields']['cablecast_show_comments']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['cablecast_show_comments']['element_label_colon'] = FALSE;
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: CG Title */
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['id'] = 'cablecast_show_cg_title';
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['table'] = 'field_data_cablecast_show_cg_title';
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['field'] = 'cablecast_show_cg_title';
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['label'] = '';
+  $handler->display->display_options['fields']['cablecast_show_cg_title']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';

@@ -55,6 +55,11 @@ function ctn_city_council_page_views_default_views() {
       'empty_column' => 0,
     ),
   );
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['cablecast_project_reference_target_id']['id'] = 'cablecast_project_reference_target_id';
+  $handler->display->display_options['relationships']['cablecast_project_reference_target_id']['table'] = 'field_data_cablecast_project_reference';
+  $handler->display->display_options['relationships']['cablecast_project_reference_target_id']['field'] = 'cablecast_project_reference_target_id';
+  $handler->display->display_options['relationships']['cablecast_project_reference_target_id']['label'] = 'Project';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -97,7 +102,15 @@ function ctn_city_council_page_views_default_views() {
   $handler->display->display_options['filters']['cablecast_project_id_value']['id'] = 'cablecast_project_id_value';
   $handler->display->display_options['filters']['cablecast_project_id_value']['table'] = 'field_data_cablecast_project_id';
   $handler->display->display_options['filters']['cablecast_project_id_value']['field'] = 'cablecast_project_id_value';
+  $handler->display->display_options['filters']['cablecast_project_id_value']['relationship'] = 'cablecast_project_reference_target_id';
   $handler->display->display_options['filters']['cablecast_project_id_value']['value']['value'] = '231';
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'cablecast_show' => 'cablecast_show',
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');

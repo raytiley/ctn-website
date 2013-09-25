@@ -7,8 +7,7 @@
 /**
  * Implements hook_ctools_plugin_api().
  */
-function ctn_front_page_ctools_plugin_api() {
-  list($module, $api) = func_get_args();
+function ctn_front_page_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "page_manager" && $api == "pages_default") {
     return array("version" => "1");
   }
@@ -17,8 +16,8 @@ function ctn_front_page_ctools_plugin_api() {
 /**
  * Implements hook_views_api().
  */
-function ctn_front_page_views_api() {
-  return array("version" => "3.0");
+function ctn_front_page_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
 }
 
 /**
@@ -41,10 +40,10 @@ function ctn_front_page_image_default_styles() {
         'module' => 'image',
         'name' => 'image_resize',
         'data' => array(
-          'width' => '360',
-          'height' => '240',
+          'width' => 360,
+          'height' => 240,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
   );
@@ -63,10 +62,10 @@ function ctn_front_page_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => '1500',
-          'height' => '550',
+          'width' => 1500,
+          'height' => 550,
         ),
-        'weight' => '2',
+        'weight' => 2,
       ),
     ),
   );
@@ -85,10 +84,10 @@ function ctn_front_page_image_default_styles() {
         'module' => 'image',
         'name' => 'image_resize',
         'data' => array(
-          'width' => '180',
-          'height' => '120',
+          'width' => 180,
+          'height' => 120,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
   );
