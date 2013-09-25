@@ -29,6 +29,7 @@ function ctn_member_pages_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['row_class'] = 'clearfix';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_mem_vid_ref_target_id']['id'] = 'field_mem_vid_ref_target_id';
@@ -36,17 +37,48 @@ function ctn_member_pages_views_default_views() {
   $handler->display->display_options['relationships']['field_mem_vid_ref_target_id']['field'] = 'field_mem_vid_ref_target_id';
   $handler->display->display_options['relationships']['field_mem_vid_ref_target_id']['label'] = 'Member';
   $handler->display->display_options['relationships']['field_mem_vid_ref_target_id']['required'] = TRUE;
+  /* Field: File: Link */
+  $handler->display->display_options['fields']['field_mem_vid_link']['id'] = 'field_mem_vid_link';
+  $handler->display->display_options['fields']['field_mem_vid_link']['table'] = 'field_data_field_mem_vid_link';
+  $handler->display->display_options['fields']['field_mem_vid_link']['field'] = 'field_mem_vid_link';
+  $handler->display->display_options['fields']['field_mem_vid_link']['label'] = '';
+  $handler->display->display_options['fields']['field_mem_vid_link']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_mem_vid_link']['element_label_colon'] = FALSE;
+  /* Field: File: Name */
+  $handler->display->display_options['fields']['filename']['id'] = 'filename';
+  $handler->display->display_options['fields']['filename']['table'] = 'file_managed';
+  $handler->display->display_options['fields']['filename']['field'] = 'filename';
+  $handler->display->display_options['fields']['filename']['label'] = '';
+  $handler->display->display_options['fields']['filename']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['filename']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['filename']['link_to_file'] = FALSE;
   /* Field: File: Rendered */
   $handler->display->display_options['fields']['rendered']['id'] = 'rendered';
   $handler->display->display_options['fields']['rendered']['table'] = 'file_managed';
   $handler->display->display_options['fields']['rendered']['field'] = 'rendered';
   $handler->display->display_options['fields']['rendered']['label'] = '';
+  $handler->display->display_options['fields']['rendered']['exclude'] = TRUE;
   $handler->display->display_options['fields']['rendered']['element_label_colon'] = FALSE;
   /* Field: File: Description */
   $handler->display->display_options['fields']['field_mem_vid_desc']['id'] = 'field_mem_vid_desc';
   $handler->display->display_options['fields']['field_mem_vid_desc']['table'] = 'field_data_field_mem_vid_desc';
   $handler->display->display_options['fields']['field_mem_vid_desc']['field'] = 'field_mem_vid_desc';
   $handler->display->display_options['fields']['field_mem_vid_desc']['label'] = '';
+  $handler->display->display_options['fields']['field_mem_vid_desc']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_mem_vid_desc']['alter']['text'] = '<div class="row-fluid">
+<div class="span3">
+[rendered]
+</div>
+<div class="span9">
+<h3>[filename]</h3>
+<p>
+[field_mem_vid_desc]
+</p>
+<p>
+<strong>More Info: </strong><a href="[field_mem_vid_link]">[field_mem_vid_link]</a>
+</p>
+</div>
+<hr />';
   $handler->display->display_options['fields']['field_mem_vid_desc']['element_label_colon'] = FALSE;
   /* Sort criterion: File: Upload date */
   $handler->display->display_options['sorts']['timestamp']['id'] = 'timestamp';

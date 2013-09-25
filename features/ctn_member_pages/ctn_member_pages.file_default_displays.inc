@@ -122,8 +122,8 @@ function ctn_member_pages_file_default_displays() {
   $file_display->weight = -48;
   $file_display->status = TRUE;
   $file_display->settings = array(
-    'width' => '320',
-    'height' => '240',
+    'width' => '100%',
+    'height' => '100%',
     'theme' => 'light',
     'color' => 'red',
     'autohide' => '2',

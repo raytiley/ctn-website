@@ -39,5 +39,34 @@ function ctn_menu_blocks_context_default_contexts() {
   $context->condition_mode = 0;
   $export['ctn_about_pages_menu'] = $context;
 
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'ctn_membership_menu_block';
+  $context->description = '';
+  $context->tag = '';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'membership' => 'membership',
+        'membership/*' => 'membership/*',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'menu_block-2' => array(
+          'module' => 'menu_block',
+          'delta' => '2',
+          'region' => 'sidebar_first',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+  $export['ctn_membership_menu_block'] = $context;
+
   return $export;
 }
