@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the CTN Menu Blocks feature.
+ */
+
+include_once 'ctn_menu_blocks.features.inc';
