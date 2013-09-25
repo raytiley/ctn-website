@@ -127,5 +127,98 @@ function ctn_member_pages_views_default_views() {
   );
   $export['ctn_member_videos'] = $view;
 
+  $view = new view();
+  $view->name = 'ctn_members';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'CTN Members';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'CTN Members';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '100';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Content: Path */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = '';
+  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
+  /* Field: Content: Logo */
+  $handler->display->display_options['fields']['field_ctn_member_logo']['id'] = 'field_ctn_member_logo';
+  $handler->display->display_options['fields']['field_ctn_member_logo']['table'] = 'field_data_field_ctn_member_logo';
+  $handler->display->display_options['fields']['field_ctn_member_logo']['field'] = 'field_ctn_member_logo';
+  $handler->display->display_options['fields']['field_ctn_member_logo']['label'] = '';
+  $handler->display->display_options['fields']['field_ctn_member_logo']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_ctn_member_logo']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_ctn_member_logo']['element_wrapper_class'] = 'thumbnail';
+  $handler->display->display_options['fields']['field_ctn_member_logo']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_ctn_member_logo']['type'] = 'image_url';
+  $handler->display->display_options['fields']['field_ctn_member_logo']['settings'] = array(
+    'image_style' => 'medium',
+    'image_link' => '',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Field: Content: Description */
+  $handler->display->display_options['fields']['field_ctn_member_desc']['id'] = 'field_ctn_member_desc';
+  $handler->display->display_options['fields']['field_ctn_member_desc']['table'] = 'field_data_field_ctn_member_desc';
+  $handler->display->display_options['fields']['field_ctn_member_desc']['field'] = 'field_ctn_member_desc';
+  $handler->display->display_options['fields']['field_ctn_member_desc']['label'] = '';
+  $handler->display->display_options['fields']['field_ctn_member_desc']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_ctn_member_desc']['alter']['text'] = '<div>
+<a href="[path]"><img src="[field_ctn_member_logo]" class="thumbnail pull-left member-list-thumbnail"/></a>
+<h3>[title]</h3>
+<p>
+[field_ctn_member_desc]
+</p>
+</div>
+<hr>';
+  $handler->display->display_options['fields']['field_ctn_member_desc']['element_label_colon'] = FALSE;
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  $handler->display->display_options['sorts']['title']['order'] = 'DESC';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'ctn_member' => 'ctn_member',
+  );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['path'] = 'membership/ctn-members';
+  $export['ctn_members'] = $view;
+
   return $export;
 }

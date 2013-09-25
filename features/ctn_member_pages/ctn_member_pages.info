@@ -60,3 +60,4 @@ features[variable][] = node_options_ctn_member
 features[variable][] = node_preview_ctn_member
 features[variable][] = node_submitted_ctn_member
 features[views_view][] = ctn_member_videos
+features[views_view][] = ctn_members
