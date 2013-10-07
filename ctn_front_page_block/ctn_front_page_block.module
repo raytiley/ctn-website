@@ -28,8 +28,8 @@ function ctn_front_page_block_render() {
 	$views = views_get_enabled_views();
 	foreach($views as $view) {
 		if(preg_match('/ctn-front-page/', $view->tag)) {
-			$view->execute();
-			$output = $output . $view->preview();
+			//$view->execute();
+			$output = $output . $view->preview('panel_pane_1');
 		}
 	}
 
