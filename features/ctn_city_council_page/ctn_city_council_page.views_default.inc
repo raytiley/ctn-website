@@ -55,6 +55,24 @@ function ctn_city_council_page_views_default_views() {
       'empty_column' => 0,
     ),
   );
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['empty'] = TRUE;
+  $handler->display->display_options['header']['area']['content'] = '<div class="row-fluid">
+<div class="span2">
+<img  src="/sites/all/themes/custom/ctn_bootstrap/img/city-seal-transparent.png" alt="Portland City Council Seal">
+</div>
+
+<div class="span10">
+  <h1>Portland City Council Meetings</h1>
+  <a href="http://townhallstreams.com/locations/portland-me" class="btn btn-primary btn-large">Watch Live Meetings</a>
+</div>
+</div>
+<hr />
+<h3>Previously Recorded Meetings</h3>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['cablecast_project_reference_target_id']['id'] = 'cablecast_project_reference_target_id';
   $handler->display->display_options['relationships']['cablecast_project_reference_target_id']['table'] = 'field_data_cablecast_project_reference';
@@ -114,6 +132,8 @@ function ctn_city_council_page_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = '<none>';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['path'] = 'portland-city-council';
   $handler->display->display_options['menu']['type'] = 'normal';
