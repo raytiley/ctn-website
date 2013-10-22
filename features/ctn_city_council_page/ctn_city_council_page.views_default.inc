@@ -62,7 +62,7 @@ function ctn_city_council_page_views_default_views() {
   $handler->display->display_options['header']['area']['empty'] = TRUE;
   $handler->display->display_options['header']['area']['content'] = '<div class="row-fluid">
 <div class="span2">
-<img  src="/sites/all/themes/custom/ctn_bootstrap/img/city-seal-transparent.png" alt="Portland City Council Seal">
+<img  src="/sites/all/themes/ctn_bootstrap/img/city-seal-transparent.png" alt="Portland City Council Seal">
 </div>
 
 <div class="span10">
