@@ -1,8 +1,9 @@
 <?php
 
 function ctn_show_tags_cablecast_show_presave($node, $show) {
-  if($show->CustomFields->CustomField) {
-    foreach($show->CustomFields->CustomField as $field)
+  if(isset($show->CustomFields->CustomField)) {
+    $fields = is_array($show->CustomFields->CustomField) ? $show->CustomFields->CustomField : array($show->CustomFields->CustomField);
+    foreach($fields as $field)
       if($field->Name == 'Tags (Comma Separated)') {
         $tags = _ctn_show_tags_build_tags($field->Value);
         $node->field_tags['und'] = $tags;
