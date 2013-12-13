@@ -91,6 +91,41 @@ function ctn_front_page_default_page_manager_pages() {
     $pane = new stdClass();
     $pane->pid = 'new-2';
     $pane->panel = 'middle';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => 'New Site - But Where Is?',
+      'body' => '<p>Thanks for visiting <a href="http://ctn5.org">ctn5.org</a>. As you can see we recently updated our site.&nbsp;Because we couldn&#39;t wait to get you some of the awesome new features on our site, we left some of the old pages behind. Be assured we are currently working on migrating all of our content and features to this new site, but for now you can get to some of the functionality using the links below.</p>
+
+<p><a href="http://old.ctn5.org/calendar">Community Calendar / Bulletin Board</a></p>
+
+<p>&nbsp; - <a href="http://old.ctn5.org/node/add/community-calendar-event">Create an Event</a></p>
+
+<p>&nbsp; - <a href="http://old.ctn5.org/node/add/community-announcement">Create an Annoncement</a></p>
+
+<p><a href="http://old.ctn5.org/classes">Classes</a></p>
+
+<p>Thanks for visiting ctn5.org. Check back often to see the latest updates to our new site.</p>
+',
+      'format' => 'full_html',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $display->content['new-2'] = $pane;
+    $display->panels['middle'][1] = 'new-2';
+    $pane = new stdClass();
+    $pane->pid = 'new-3';
+    $pane->panel = 'middle';
     $pane->type = 'block';
     $pane->subtype = 'ctn_front_page_block-ctn_front_page';
     $pane->shown = TRUE;
@@ -105,10 +140,10 @@ function ctn_front_page_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 2;
     $pane->locks = array();
-    $display->content['new-2'] = $pane;
-    $display->panels['middle'][1] = 'new-2';
+    $display->content['new-3'] = $pane;
+    $display->panels['middle'][2] = 'new-3';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
