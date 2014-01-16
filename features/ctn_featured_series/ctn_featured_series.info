@@ -26,6 +26,7 @@ features[field_instance][] = node-cablecast_project-cablecast_project_descriptio
 features[field_instance][] = node-cablecast_project-cablecast_project_id
 features[field_instance][] = node-cablecast_project-cablecast_project_name
 features[page_manager_handlers][] = node_view_panel_context_4
+features[page_manager_pages][] = ctn_watch
 features[views_view][] = ctn_featured_series
 features[views_view][] = ctn_project_shows
 features_exclude[dependencies][ctools] = ctools
